@@ -11,7 +11,7 @@ are:
 *   Install Strawberry Perl
 *   Add Strawberry Perl to the path
 *   Install dependencies with [cpanminus]
-*   Build and test as usual
+*   Build and test your Perl project as usual
 
 [Strawberry Perl]: http://strawberryperl.com
 [Travis CI Windows Build Environment]: https://docs.travis-ci.com/user/reference/windows/

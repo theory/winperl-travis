@@ -8,7 +8,7 @@ jobs:
         - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
         - perl -v
       install:
-        - cpanm --notest Class::Delegator
+        - cpanm --notest --installdeps .
       script:
         - perl Makefile.PL
         - make
