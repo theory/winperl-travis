@@ -11,4 +11,5 @@ jobs:
       #   - cpanm --installdeps .
       script:
         - echo $PATH
+        - perl -v
         - cpanm --version
