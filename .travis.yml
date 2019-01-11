@@ -1,0 +1,8 @@
+jobs:
+  include:
+    - stage: Windows
+      os: windows
+      script:
+        - choco install strawberryperl
+        - perl -v
+        - cpanm --version
