@@ -11,6 +11,4 @@ jobs:
         - cpanm --notest Class::Delegator
       script:
         - which prove
-        - dir /c/Strawberry/perl/site/bin
-        - dir /c/Strawberry/perl/bin
-        - dir /c/Strawberry/c/bin
+        - which cpanm
