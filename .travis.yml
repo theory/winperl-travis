@@ -4,10 +4,11 @@ jobs:
       os: windows
       language: shell
       before_install:
-        - cinst strawberryperl
+        - cinst -y strawberryperl
         - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
+        - perl -v
+        - cpanm --version
       install:
         - cpanm --notest Class::Delegator
-      #   - cpanm --installdeps .
       script:
-        - which cpanm
+        - cpanm --version
