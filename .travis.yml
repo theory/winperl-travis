@@ -10,4 +10,6 @@ jobs:
       install:
         - cpanm --notest Class::Delegator
       script:
-        - cmake test
+        - perl Makefile.PL
+        - make
+        - make test
