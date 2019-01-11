@@ -10,4 +10,7 @@ jobs:
       install:
         - cpanm --notest Class::Delegator
       script:
-        - prove -l
+        - which prove
+        - dir /c/Strawberry/perl/site/bin
+        - dir /c/Strawberry/perl/bin
+        - dir /c/Strawberry/c/bin
