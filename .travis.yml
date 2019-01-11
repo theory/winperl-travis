@@ -12,4 +12,4 @@ jobs:
       #   - cpanm --installdeps .
       script:
         - echo $PATH
-        - /c/Strawberry/bin/cpanm --version
+        - /c/Strawberry/perl/bin/cpanm --version
