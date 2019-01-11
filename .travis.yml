@@ -12,8 +12,6 @@ jobs:
       #   - cpanm --installdeps .
       script:
         - which perl
-        - C:\\Strawberry\\perl\bin\\cpanm --version
-        # - env
-        # - echo $PATH
-        # - perl -v
-        - cpanm --version
+        - perl -v
+        - dir /c/Strawberry/perl/bin
+        - cpanm.bat --version
