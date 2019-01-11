@@ -4,7 +4,7 @@ jobs:
       os: windows
       language: shell
       before_install:
-        # - cinst strawberryperl
+        - cinst strawberryperl
         - export "PATH=/c/Strawberry/perl/bin:$PATH"
         # - PATH C:\\Strawberry\\perl\\bin;%PATH%
         # - SET "PATH=C:\Strawberry\perl\bin;%PATH%"
@@ -12,8 +12,8 @@ jobs:
       #   - cpanm --installdeps .
       script:
         - which perl
-        - C:\\Strawberry\\perl\bin\\cpanm
+        - C:\\Strawberry\\perl\bin\\cpanm --version
         # - env
         # - echo $PATH
         # - perl -v
-        # - cpanm --version
+        - cpanm --version
