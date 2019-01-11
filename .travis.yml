@@ -5,10 +5,9 @@ jobs:
       language: shell
       before_install:
         - choco install strawberryperl
-        - refreshenv
+        - set PATH=C:\\Strawberry\\perl\\bin;%PATH%
       # install:
       #   - cpanm --installdeps .
       script:
         - perl -v
-        - C:\\Strawberry\\perl\\bin\\cpanm --version
         - cpanm --version
