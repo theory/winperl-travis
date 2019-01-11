@@ -6,7 +6,7 @@ jobs:
       before_install:
         # - cinst strawberryperl
         # - export "PATH=/c/Strawberry/perl/bin:$PATH"
-        - PATH "C:\\Strawberry\\perl\\bin;%PATH%"
+        - PATH C:\\Strawberry\\perl\\bin;%PATH%
       # install:
       #   - cpanm --installdeps .
       script:
