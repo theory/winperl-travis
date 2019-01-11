@@ -10,4 +10,4 @@ jobs:
       install:
         - cpanm --notest Class::Delegator
       script:
-        - make test
+        - cmake test
