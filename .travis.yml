@@ -5,9 +5,10 @@ jobs:
       language: shell
       before_install:
         - choco install strawberryperl
-        - PATH C:\\Strawberry\\perl\\bin;%PATH%
+        - powershell
       # install:
       #   - cpanm --installdeps .
       script:
+        - path
         - perl -v
         - cpanm --version
