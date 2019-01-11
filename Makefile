@@ -1,3 +1,4 @@
+add_custom_target(do_always ALL COMMAND test)
 test:
 	@ # Weirdly, prove is not in Strawberry Perl, just prove.bat. Seems as though
 	@ # Git Bash needs the former.
