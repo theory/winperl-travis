@@ -3,7 +3,11 @@ jobs:
     - stage: Windows
       os: windows
       language: shell
-      script:
+      before_install:
         - choco install strawberryperl
+      # install:
+      #   - cpanm --installdeps .
+      script:
         - perl -v
+        - dir C:\\Strawberry\\perl\\bin
         - cpanm --version
