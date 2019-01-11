@@ -4,12 +4,14 @@ jobs:
       os: windows
       language: shell
       before_install:
-        # - choco install strawberryperl
-        - export "PATH=/c/Strawberry/perl/bin:$PATH"
-        # - set "PATH=C:\\Strawberry\\perl\\bin;%PATH%"
+        # - cinst strawberryperl
+        # - export "PATH=/c/Strawberry/perl/bin:$PATH"
+        - SET "PATH=C:\\Strawberry\\perl\\bin;%PATH%"
       # install:
       #   - cpanm --installdeps .
       script:
-        - echo $PATH
-        - perl -v
-        - cpanm --version
+        - SET PATH
+        - SET
+        # - echo $PATH
+        # - perl -v
+        # - cpanm --version
