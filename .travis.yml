@@ -10,4 +10,4 @@ jobs:
       install:
         - cpanm --notest Class::Delegator
       script:
-        - cat /c/Strawberry/perl/bin/prove.bat
+        - make test
