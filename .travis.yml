@@ -5,13 +5,11 @@ jobs:
       language: shell
       before_install:
         - cinst strawberryperl
-        - export "PATH=/c/Strawberry/perl/bin:$PATH"
+        - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
         # - PATH C:\\Strawberry\\perl\\bin;%PATH%
         # - SET "PATH=C:\Strawberry\perl\bin;%PATH%"
       # install:
       #   - cpanm --installdeps .
       script:
-        - which perl
-        - perl -v
-        - dir /c/Strawberry/perl/bin
-        - cpanm.bat --version
+        - echo $PATH
+        - /c/Strawberry/bin/cpanm --version
