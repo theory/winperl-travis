@@ -2,6 +2,7 @@ jobs:
   include:
     - stage: Windows
       os: windows
+      language: shell
       script:
         - choco install strawberryperl
         - perl -v
