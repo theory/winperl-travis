@@ -11,5 +11,5 @@ jobs:
         - cpanm --notest --installdeps .
       script:
         - perl Makefile.PL
-        - cmake
-        - cmake test
+        - dmake
+        - dmake test
