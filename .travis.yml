@@ -4,10 +4,11 @@ jobs:
       os: windows
       language: shell
       before_install:
-        - perl -v
         - choco install strawberryperl
+        - refreshenv
       # install:
       #   - cpanm --installdeps .
       script:
         - perl -v
-        - dir C:\\Strawberry\\perl\\bin\\cpanm --version
+        - C:\\Strawberry\\perl\\bin\\cpanm --version
+        - cpanm --version
