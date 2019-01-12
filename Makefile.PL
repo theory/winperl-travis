@@ -1,9 +1,8 @@
 use ExtUtils::MakeMaker;
 WriteMakefile(
-    NAME      => 'Win32::Travis',
-    VERSION   => '1.0',
-    ABSTRACT  => 'Simple demo module',
-    PREREQ_PM => {
+    NAME         => 'Win32::Travis',
+    VERSION_FROM => 'lib/Win32/Travis.pm',
+    PREREQ_PM    => {
         'URI::db' => 0,
     }
 );
