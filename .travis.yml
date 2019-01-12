@@ -23,6 +23,8 @@ jobs:
     - stage: Windows
       os: windows
       language: shell
+      env:
+      - PERL_VERSION: ""
       before_install:
         - set
         - cinst -y strawberryperl
