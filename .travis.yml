@@ -1,4 +1,4 @@
-# Default "test" stage supports a matrix of different Perl versions to install.
+# Default "Test" stage supports a matrix of different Perl versions to install.
 os: windows
 language: shell
 env:
@@ -6,10 +6,8 @@ env:
   - PERL_VERSION: 5.28.1.1
   - PERL_VERSION: 5.26.3.1
 before_install:
-  - set
   - cinst -y strawberryperl --version $PERL_VERSION
   - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
-  # - perl -MConfig -E 'my %a; say join ":", grep { $_ && !$a{$_}++ } map { $Config{$_} } qw(sitebin bin vendorbin)'
 install:
   - cpanm --notest --installdeps .
 script:
@@ -17,16 +15,18 @@ script:
   - gmake
   - gmake test
 
+# Secondary stages to include, e.g. if the default "Test" stage is on Linux, and
+# you want to add stages to test on Windows.
 jobs:
   include:
-    # No matrix support in Stages, so install latest version of Perl.
+    # No matrix support in Stages, so install latest version of Perl. Good if
+    # you just want to test against the latest version of Perl. The Stage will
+    # still show `PERL_VERSION=5.28.1.1`, because it inherits the first value of
+    # PERL_VERSION above, even though we don't use it.
     - stage: Windows
       os: windows
       language: shell
-      env:
-      - PERL_VERSION: "default"
       before_install:
-        - set
         - cinst -y strawberryperl
         - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
       install:
@@ -39,13 +39,13 @@ jobs:
     # Matrix hack: Declare the same stage name multiple times to test multiple
     # versions. Yes this is redundant.
     # https://github.com/travis-ci/travis-ci/issues/8295
+    # First instance of "stage: Strawberry" tests 5.28.1.1.
     - stage: Strawberry
       os: windows
       language: shell
       env:
       - PERL_VERSION: 5.28.1.1
       before_install:
-        - set
         - cinst -y strawberryperl --version $PERL_VERSION
         - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
       install:
@@ -54,13 +54,13 @@ jobs:
         - perl Makefile.PL
         - gmake
         - gmake test
+    # Second instance of "stage: Strawberry" tests 5.26.3.1.
     - stage: Strawberry
       os: windows
       language: shell
       env:
       - PERL_VERSION: 5.26.3.1
       before_install:
-        - set
         - cinst -y strawberryperl --version $PERL_VERSION
         - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
       install:
