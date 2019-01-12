@@ -1,5 +1,5 @@
-os: windows
 # Default "test" stage supports a matrix of different Perl versions to install.
+os: windows
 language: shell
 env:
   # https://chocolatey.org/packages/StrawberryPerl#versionhistory
@@ -21,6 +21,8 @@ script:
   include:
     # No matrix support in Stages, so install latest version of Perl.
     - stage: Windows
+      os: windows
+      language: shell
       before_install:
         - set
         - cinst -y strawberryperl
