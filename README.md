@@ -141,7 +141,7 @@ Caveats
 
   [Strawberry Perl]: http://strawberryperl.com
   [Travis CI Windows Build Environment]: https://docs.travis-ci.com/user/reference/windows/
-  [`.travis.yml`: ./.travis.yml
+  [`.travis.yml`]: ./.travis.yml
   [Strawberry Perl versions]: https://chocolatey.org/packages/StrawberryPerl#versionhistory
   [cpanminus]: https://github.com/miyagawa/cpanminus
   [Chocolatey]: https://chocolatey.org
