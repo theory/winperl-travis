@@ -2,11 +2,11 @@ os: windows
 language: shell
 env:
   # https://chocolatey.org/packages/StrawberryPerl#versionhistory
-  - STRAW_PERL_VERSION: 5.28
-  - STRAW_PERL_VERSION: 5.26
+  - PERL_VERSION: 5.28.1.1
+  - PERL_VERSION: 5.26.3.1
 before_install:
   - set
-  - cinst -y strawberryperl --version $STRAW_PERL_VERSION
+  - cinst -y strawberryperl --version $PERL_VERSION
   - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
   - perl -v
 install:
