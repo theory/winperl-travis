@@ -22,7 +22,7 @@ Windows:
 2.  Windows stage test with the latest version of Perl
 3.  Hack stage to test on multiple versions of Perl
 
-# Default Test Stage Matrix
+### Default Test Stage Matrix
 
 If you only want to test on Windows with [Strawberry Perl], and don't care about
 any other OS, this is the way to go. First, set the OS, language, and matrix of
@@ -57,7 +57,7 @@ script:
   - gmake test
   ```
 
-# Single Windows Stage
+### Single Windows Stage
 
 If you already use the standard Travis environment for a matrix of [Perl
 versions], and just want to test your project against a single version of Perl
@@ -84,7 +84,7 @@ Note that the `before_install` phase installs the latest version of [Strawberry
 Perl], without regard to any environment variables.  All the other phases are
 the same as the default stage.
 
-# Windows Matrix Stage
+### Windows Matrix Stage
 
 To test on multiple versions of Perl on Windows but still keep the default
 "Test" stage on Linux, it's possible, although build stages do not ([yet]?)
