@@ -1,7 +1,7 @@
 Travis CI Windows + Strawberry Perl
 ===================================
 
-[![Build Status](https://travis-ci.com/theory/winperl-travis.png)](https://travis-ci.com/theory/winperl-travis)
+[![Build Status](https://api.travis-ci.com/theory/winperl-travis.svg)](https://travis-ci.com/theory/winperl-travis)
 
 A simple sample project for installing dependencies and running tests with
 [Strawberry Perl] on the [Travis CI Windows Build Environment]. See the
