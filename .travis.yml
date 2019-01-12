@@ -1,4 +1,5 @@
 os: windows
+# Default "test" stage supports a matrix of different Perl versions to install.
 language: shell
 env:
   # https://chocolatey.org/packages/StrawberryPerl#versionhistory
@@ -15,3 +16,19 @@ script:
   - perl Makefile.PL
   - gmake
   - gmake test
+
+  jobs:
+  include:
+    # No matrix support in Stages, so install latest version of Perl.
+    - stage: Windows
+      before_install:
+        - set
+        - cinst -y strawberryperl
+        - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
+        - perl -v
+      install:
+        - cpanm --notest --installdeps .
+      script:
+        - perl Makefile.PL
+        - gmake
+        - gmake test
