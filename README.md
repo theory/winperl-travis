@@ -8,6 +8,7 @@ with [Strawberry Perl] on the [Travis CI Windows Build Environment]. See
 the [`.travis.yml](./.travis.yml) file for the working code. The steps
 are:
 
+*   Configure the [Strawberry Perl versions] to test
 *   Install Strawberry Perl
 *   Add Strawberry Perl to the path
 *   Install dependencies with [cpanminus]
@@ -15,4 +16,5 @@ are:
 
 [Strawberry Perl]: http://strawberryperl.com
 [Travis CI Windows Build Environment]: https://docs.travis-ci.com/user/reference/windows/
+[Strawberry Perl versions]: https://chocolatey.org/packages/StrawberryPerl#versionhistory
 [cpanminus]: https://github.com/miyagawa/cpanminus
