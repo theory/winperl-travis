@@ -9,7 +9,7 @@ before_install:
   - set
   - cinst -y strawberryperl --version $PERL_VERSION
   - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
-  - "perl -MConfig -E 'my %a; say join ":", grep { $_ && !$a{$_}++ } map { $Config{$_} } qw(sitebin bin vendorbin)'"
+  # - perl -MConfig -E 'my %a; say join ":", grep { $_ && !$a{$_}++ } map { $Config{$_} } qw(sitebin bin vendorbin)'
 install:
   - cpanm --notest --installdeps .
 script:
