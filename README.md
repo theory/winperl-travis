@@ -133,7 +133,7 @@ Caveats
 -------
 
 *   The [Travis CI Windows Build Environment] is in an early release and subject
-    to change.
+    to change. Be sure to consult the [known issues] when you run into problems.
 *   The shell environment on is [Git Bash], not `cmd.exe` or PowerShell (though
     Travis is "[looking into adding first class Powershell support very soon]")
 *   The `prove` utility does not currently work, perhaps because `prove.bat` is
@@ -146,9 +146,15 @@ Caveats
   [Strawberry Perl versions]: https://chocolatey.org/packages/StrawberryPerl#versionhistory
   [cpanminus]: https://github.com/miyagawa/cpanminus
   [Chocolatey]: https://chocolatey.org
-  [Perl versions]: https://docs.travis-ci.com/user/languages/perl/ "Travis CI: Building a Perl Project"
-  [yet]: https://github.com/travis-ci/travis-ci/issues/8295 "Support Matrix expansion per-stage in Build Stages feature"
+  [Perl versions]: https://docs.travis-ci.com/user/languages/perl/
+    "Travis CI: Building a Perl Project"
+  [yet]: https://github.com/travis-ci/travis-ci/issues/8295
+    "Support Matrix expansion per-stage in Build Stages feature"
   [a workaround]: https://github.com/travis-ci/travis-ci/issues/8295#issuecomment-325044011
+  [known issues: https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264
+    "Travis CI Community: “Current known \[Windows\] issues — Please read this before posting a new topic”"
   [Git Bash]: https://gitforwindows.org
-  [looking into adding first class Powershell support very soon]: https://docs.travis-ci.com/user/reference/windows/#powershell
-  [bug report]: https://rt.cpan.org/Public/Bug/Display.html?id=128221 "Bug #128221 for Perl-Dist-Strawberry: Prove Perl Script not Installed"
+  [looking into adding first class Powershell support very soon]:
+    https://docs.travis-ci.com/user/reference/windows/#powershell
+  [bug report]: https://rt.cpan.org/Public/Bug/Display.html?id=128221
+    "Bug #128221 for Perl-Dist-Strawberry: Prove Perl Script not Installed"
