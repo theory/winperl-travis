@@ -151,7 +151,7 @@ Caveats
   [yet]: https://github.com/travis-ci/travis-ci/issues/8295
     "Support Matrix expansion per-stage in Build Stages feature"
   [a workaround]: https://github.com/travis-ci/travis-ci/issues/8295#issuecomment-325044011
-  [known issues: https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264
+  [known issues]: https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264
     "Travis CI Community: “Current known \[Windows\] issues — Please read this before posting a new topic”"
   [Git Bash]: https://gitforwindows.org
   [looking into adding first class Powershell support very soon]:
