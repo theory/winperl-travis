@@ -137,7 +137,8 @@ Caveats
 *   The shell environment on is [Git Bash], not `cmd.exe` or PowerShell (though
     Travis is "[looking into adding first class Powershell support very soon]")
 *   The `prove` utility does not currently work, perhaps because `prove.bat` is
-    installed bug [Git Bash] requires just `prove`? That's just a guess.
+    installed but [Git Bash] requires just `prove`? That's just a guess
+    ([bug report]).
 
   [Strawberry Perl]: http://strawberryperl.com
   [Travis CI Windows Build Environment]: https://docs.travis-ci.com/user/reference/windows/
@@ -150,3 +151,4 @@ Caveats
   [a workaround]: https://github.com/travis-ci/travis-ci/issues/8295#issuecomment-325044011
   [Git Bash]: https://gitforwindows.org
   [looking into adding first class Powershell support very soon]: https://docs.travis-ci.com/user/reference/windows/#powershell
+  [bug report]: https://rt.cpan.org/Public/Bug/Display.html?id=128221 "Bug #128221 for Perl-Dist-Strawberry: Prove Perl Script not Installed"
