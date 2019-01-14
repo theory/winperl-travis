@@ -158,3 +158,8 @@ Caveats
     https://docs.travis-ci.com/user/reference/windows/#powershell
   [bug report]: https://rt.cpan.org/Public/Bug/Display.html?id=128221
     "Bug #128221 for Perl-Dist-Strawberry: Prove Perl Script not Installed"
+
+Author
+------
+
+[David E. Wheeler](https://justatheory.com/)
