@@ -2,8 +2,8 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME      => 'Win32::Travis',
     VERSION   => '1.0',
-    ABSTRACT  => 'Simple demo module',
+    ABSTRACT  => 'Simple demo distribution',
     PREREQ_PM => {
-        'URI::db' => 0,
+        'CPAN::Test::Dummy::Perl5::Make' => 0,
     }
 );

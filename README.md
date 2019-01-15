@@ -89,19 +89,19 @@ the same as the default stage.
 To test on multiple versions of Perl on Windows but still keep the default
 "Test" stage on Linux, it's possible, although build stages do not ([yet]?)
 support matrix expansion. Instead, we have to rely on [a workaround] where
-multiple stages with the same name are considered a matrix. It makes for
-a lot of redundancy in the [`.travis.yml`], but it works:
+multiple stages with the same name are considered a matrix. To avoid a ton
+of redundancy, use [YAML anchors and aliases] in the [`.travis.yml`]:
 
 ``` yaml
 jobs:
   include:
 
-    # First instance of "stage: Strawberry" tests 5.28.1.1.
-    - stage: Strawberry
+    # First instance of "stage: Strawberry" creates alias and tests 5.28.1.1.
+    - &strawberry
+      stage: Strawberry
       os: windows
       language: shell
-      env:
-      - PERL_VERSION: 5.28.1.1
+      env: PERL_VERSION=5.28.1.1
       before_install:
         - cinst -y strawberryperl --version $PERL_VERSION
         - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
@@ -112,21 +112,11 @@ jobs:
         - gmake
         - gmake test
 
-    # Second instance of "stage: Strawberry" tests 5.26.3.1.
-    - stage: Strawberry
-      os: windows
-      language: shell
-      env:
-      - PERL_VERSION: 5.26.3.1
-      before_install:
-        - cinst -y strawberryperl --version $PERL_VERSION
-        - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
-      install:
-        - cpanm --notest --installdeps .
-      script:
-        - perl Makefile.PL
-        - gmake
-        - gmake test
+    # Subsequent instances use the alias to test different versions.
+    - <<: *strawberry
+      env: PERL_VERSION=5.26.3.1
+    - <<: *strawberry
+      env: PERL_VERSION=5.26.2.1
 ```
 
 Caveats
@@ -140,6 +130,11 @@ Caveats
     installed but [Git Bash] requires just `prove`? That's just a guess
     ([bug report]).
 
+*   As of this writing, Strawberry Perl 5.24 doesn't work well with
+    `Makefile.PL` distributions, including dependencies. Theoretically, one can
+    use `dmake` instead of `gmake`, but even then, there seems to be some sort
+    of conflict with the system Perl. See [issue #1] for details.
+
   [Strawberry Perl]: http://strawberryperl.com
   [Travis CI Windows Build Environment]: https://docs.travis-ci.com/user/reference/windows/
   [`.travis.yml`]: ./.travis.yml
@@ -150,6 +145,7 @@ Caveats
     "Travis CI: Building a Perl Project"
   [yet]: https://github.com/travis-ci/travis-ci/issues/8295
     "Support Matrix expansion per-stage in Build Stages feature"
+  [YAML anchors and aliases]: http://www.yaml.org/spec/1.2/spec.html#id2765878
   [a workaround]: https://github.com/travis-ci/travis-ci/issues/8295#issuecomment-325044011
   [known issues]: https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264
     "Travis CI Community: “Current known \[Windows\] issues — Please read this before posting a new topic”"
@@ -158,6 +154,8 @@ Caveats
     https://docs.travis-ci.com/user/reference/windows/#powershell
   [bug report]: https://rt.cpan.org/Public/Bug/Display.html?id=128221
     "Bug #128221 for Perl-Dist-Strawberry: Prove Perl Script not Installed"
+  [issue #1]: https://github.com/theory/winperl-travis/issues/1
+    "Strawberry Perl 5.24 Makefile.PL Builds Fail"
 
 Author
 ------

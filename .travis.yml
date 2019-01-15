@@ -37,14 +37,14 @@ jobs:
         - gmake test
 
     # Matrix hack: Declare the same stage name multiple times to test multiple
-    # versions. Yes this is redundant.
-    # https://github.com/travis-ci/travis-ci/issues/8295
+    # versions. Use a YAML alias to prevent redundancy.
+    # https://github.com/travis-ci/travis-ci/issues/8295#issuecomment-454167006
     # First instance of "stage: Strawberry" tests 5.28.1.1.
-    - stage: Strawberry
+    - &strawberry
+      stage: Strawberry
       os: windows
       language: shell
-      env:
-      - PERL_VERSION: 5.28.1.1
+      env: PERL_VERSION=5.28.1.1
       before_install:
         - cinst -y strawberryperl --version $PERL_VERSION
         - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
@@ -54,18 +54,9 @@ jobs:
         - perl Makefile.PL
         - gmake
         - gmake test
-    # Second instance of "stage: Strawberry" tests 5.26.3.1.
-    - stage: Strawberry
-      os: windows
-      language: shell
-      env:
-      - PERL_VERSION: 5.26.3.1
-      before_install:
-        - cinst -y strawberryperl --version $PERL_VERSION
-        - export "PATH=/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:/c/Strawberry/c/bin:$PATH"
-      install:
-        - cpanm --notest --installdeps .
-      script:
-        - perl Makefile.PL
-        - gmake
-        - gmake test
+
+    # Subsequent instances use the alias to test different versions.
+    - <<: *strawberry
+      env: PERL_VERSION=5.26.3.1
+    - <<: *strawberry
+      env: PERL_VERSION=5.26.2.1
